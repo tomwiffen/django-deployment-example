@@ -1,0 +1,21 @@
+{% extends "config_app/base.html" %}
+{% load static %}
+{% block body_block %}
+
+<div class="jumbotron">
+
+  {% if registered %}
+    <h1>Thank You For Registering a New Panel!</h1>
+  {% else %}
+    <h1>Register Here!</h1>
+    <h3>Fill Out the Form!</h3>
+    <form enctype="multipart/form-data" method="post" >
+      {% csrf_token %}
+      {{ new_panel_form.as_p }}
+      <input type="submit" name="" value="Register">
+    </form>
+  {% endif %}
+
+</div>
+
+{% endblock %}

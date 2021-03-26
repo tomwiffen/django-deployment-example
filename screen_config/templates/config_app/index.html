@@ -1,0 +1,31 @@
+{% extends "config_app/base.html" %}
+{% block body_block %}
+<div class="jumbotron">
+  <h1>Screen Config App</h1>
+  {% if screens_list %}
+    <table>
+      <thead>
+        <td>Screen name</td>
+        <td>Panel</td>
+        <td>Screen Width</td>
+        <td>Screen Height</td>
+        <td>Refresh Rate</td>
+        <td>Panel Resolution</td>
+      </thead>
+      {% for screen in screens_list %}
+      <tr>
+        <td>{{screen.screen_name}}</td>
+        <td>{{screen.panel}}</td>
+        <td>{{screen.screen_width}}</td>
+        <td>{{screen.screen_height}}</td>
+        <td>{{screen.refresh_rate}}</td>
+        <td>{{screen.screen_resolution}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>NO ACCESS RECORDS FOUND</p>
+  {% endif %}
+</div>
+
+{% endblock %}
